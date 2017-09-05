@@ -4,9 +4,11 @@
 /dist
 /tmp
 /out-tsc
+yarn.lock
 
 # dependencies
 /node_modules
+/src
 
 # IDEs and editors
 /.idea
