@@ -1,0 +1,36 @@
+<md-menu #rootMenu="mdMenu">
+  
+  <a routerLink="/">
+    <button md-menu-item>
+      <md-icon>home</md-icon>
+        <span>Home</span>
+    </button>
+  </a>
+
+  <a routerLink="/contact">
+    <button md-menu-item>
+      <md-icon>contact_mail</md-icon>
+      <span>Contact</span>
+    </button>
+  </a>
+  <a routerLink="/about">
+    <button md-menu-item>
+      <md-icon>copyright</md-icon>
+      <span>About</span>
+    </button>
+  </a>
+  <button md-menu-item [mdMenuTriggerFor]="subMenu">Power</button>
+  <button md-menu-item>System settings</button>
+</md-menu>
+
+<md-menu #subMenu="mdMenu">
+  <button md-menu-item>Shut down</button>
+  <button md-menu-item>Restart</button>
+  <button md-menu-item>Hibernate</button>
+</md-menu>
+
+
+<button md-icon-button [mdMenuTriggerFor]="rootMenu">
+  <md-icon>more_vert</md-icon>
+</button>
+<span>Janus Site</span>
