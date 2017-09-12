@@ -1,22 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { HttpModule} from '@angular/http';
 
 import { AppCommonModule } from "./common/common.module";
+import { ShopModule } from "./shop/shop.module";
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { AppRoutingModule } from "./app.routes";
 
-// определение маршрутов
-export const ROUTES: Routes =[
-    { path: '', component: HomeComponent },
-    { path: 'about', component: AboutComponent},
-    { path: '**', component: NotFoundComponent },
-];
- 
 
 @NgModule({
   declarations: [
@@ -27,8 +22,9 @@ export const ROUTES: Routes =[
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AppCommonModule,
-    RouterModule.forRoot(ROUTES)
+    AppRoutingModule
   ],
 
   providers: [],
