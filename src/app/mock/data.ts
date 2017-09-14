@@ -2,19 +2,19 @@ export const DATA: any  = {
   "categories": [
     {
       "categori_id": 1,
-      "name": "drinks"
+      "name": "Abyssinian"
     },
     {
       "categori_id": 2,
-      "name": "lunch"
+      "name": "Bobtail"
     },
     {
       "categori_id": 3,
-      "name": "food"
+      "name": "Balinese"
     },
     {
       "categori_id": 4,
-      "name": "sea"
+      "name": "Bengal"
     }
   ],
   "products": [
@@ -28,7 +28,7 @@ export const DATA: any  = {
         1,
         4
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/1",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -40,7 +40,7 @@ export const DATA: any  = {
       "categories": [
         4
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -52,7 +52,7 @@ export const DATA: any  = {
       "categories": [
         4
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/3",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -65,7 +65,7 @@ export const DATA: any  = {
         1,
         2
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/4",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -78,7 +78,7 @@ export const DATA: any  = {
         1,
         4
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/5",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -91,7 +91,7 @@ export const DATA: any  = {
         1,
         4
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/6",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -104,7 +104,7 @@ export const DATA: any  = {
         1,
         3
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/7",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -117,7 +117,7 @@ export const DATA: any  = {
         1,
         3
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/8",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -130,7 +130,7 @@ export const DATA: any  = {
         2,
         4
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/9",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     },
     {
@@ -143,7 +143,7 @@ export const DATA: any  = {
         2,
         3
       ],
-      "img": "http://lorempixel.com/200/100/food/",
+      "img": "http://lorempixel.com/200/100/cats/10",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
     }
   ]
