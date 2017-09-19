@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { MaterialModule } from '@angular/material';
 
 import { ProductListComponent } from './product-list/product-list.component';
@@ -14,10 +15,12 @@ import { ProductsService } from '../services/products.service';
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
+
     ShopRoutingModule
   ],
   
@@ -25,6 +28,7 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
   
   providers: [
     ProductsService,
+
   ]
 })
 export class ShopModule { }

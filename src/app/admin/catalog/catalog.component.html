@@ -1,0 +1,20 @@
+<div class="products">
+    <div aria-flowto="<left></left>">
+        <h2>Products list</h2>
+        <button class="addBtn" md-fab [routerLink]="['/admin/add']"> <md-icon>add</md-icon></button>
+        <br><br><br>
+    </div>
+    
+    <md-card *ngFor="let product of products">
+        <md-list>
+            <md-list-item>
+                <a md-line [routerLink]="['/admin/show', product.id]"> {{product.name}} </a>
+                <p md-line>
+                    <span>{{product.price}}</span>
+                </p>
+                <span><button md-button (click)='deleteProduct(product.id)'><md-icon>delete</md-icon></button></span>
+                <span><button md-button [routerLink]="['/admin/edit', product.id]"><md-icon>edit</md-icon></button></span>
+            </md-list-item>
+        </md-list>
+    </md-card>
+</div>

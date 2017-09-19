@@ -20,12 +20,12 @@
     </button>
   </a>
   <button md-menu-item [mdMenuTriggerFor]="subMenu">Shop</button>
-  <button md-menu-item>System settings</button>
+  <a routerLink="/admin"><button md-menu-item>Dashboard</button></a>
 </md-menu>
 
 <md-menu #subMenu="mdMenu">
   <a routerLink="/shop"><button md-menu-item>Catalog</button></a>
-  <button md-menu-item>Restart</button>
+  
   <button md-menu-item>Hibernate</button>
 </md-menu>
 
