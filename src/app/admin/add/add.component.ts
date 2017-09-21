@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdFormFieldControl } from '@angular/material';
+import { Location }                 from '@angular/common';
+import { Router } from '@angular/router';
 
 import { DataService } from '../../services/data.service';
 import { Product } from '../../models/product.model';
@@ -16,11 +18,12 @@ import { Product } from '../../models/product.model';
 export class AddComponent implements OnInit {
 
    @Input()
-   products: Product[] = [];
+   product: Product;
+   location: Location;
 
    productForm: FormGroup;
 
-   constructor(private dataService: DataService, private fb: FormBuilder) { }
+   constructor(private dataService: DataService, private fb: FormBuilder, private router : Router) { }
   
 
   createForm() {
@@ -31,22 +34,37 @@ export class AddComponent implements OnInit {
       available: '',
       best_seller: '',
       img: '',
-      category: ''
+      categories: ''
     });
   }
 
   ngOnInit() {
       this.createForm();
+
   }
 
-  // onAddProduct(product) {
-  //   this.dataService
-  //     .addProduct(product)
-  //     .subscribe(
-  //       (newProduct) => {
-  //         this.products = this.products.concat(newProduct);
-  //       }
-  //     );
-  // }
+  onAddProduct(product) {
+
+    this.product = new Product;
+    this.product.description = product.description;
+    this.product.name = product.name;
+    this.product.price = product.price;
+    this.product.available = product.available;
+    this.product.best_seller = product.available;
+    this.product.img = "http://lorempixel.com/200/100/cats/12";
+    this.product.categories = [1,2];
+
+    this.dataService
+      .addProduct(this.product)
+      .subscribe(
+        () => this.router.navigate(['admin/list'])//this.goBack()
+      );
+  }
+
+  
+
+  goBack(): void {
+    this.location.back();
+  }
 
 }

@@ -1,3 +1,24 @@
-<p>
-  edit works!
-</p>
+<div class="products">
+<h5>Edit product:</h5>
+<form [formGroup]="productForm" novalidate (ngSubmit)="onSaveProduct(productForm.value)">
+        <md-form-field class="full-width">
+            <input mdInput class="form-control" placeholder="Product name" formControlName="name" [ngModel]="name">
+            <md-error>This field is required</md-error>
+        </md-form-field><br>
+        <md-form-field class="full-width">
+            <input mdInput class="form-control" placeholder="Product price" formControlName="price"  [ngModel]="product.price">
+            <md-error>This field is required</md-error>
+        </md-form-field><br>
+        <md-form-field class="full-width">
+            <textarea mdInput placeholder="Your product description..." class="form-control" formControlName="description" [ngModel]="product.description"></textarea>
+            
+        </md-form-field><br>
+
+        
+          <md-checkbox mdInput class="select-margin" formControlName="available" [ngModel]="product.available">Available</md-checkbox>
+          <md-checkbox mdInput class="select-margin" formControlName="best_seller" [ngModel]="product.best_seller">Best seller</md-checkbox><br><br>
+        
+        <button md-raised-button type="submit" color="accent">Save Change</button><button md-raised-button color="primary" [routerLink]="['/admin/list']">Back to list</button>
+    </form>
+
+</div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent, CatalogComponent, AddComponent, ShowComponent } from './';
+import { DashboardComponent, CatalogComponent, AddComponent, ShowComponent, CategoryComponent, EditComponent } from './';
 
 const routes: Routes = [
    {
@@ -18,6 +18,14 @@ const routes: Routes = [
       {
         path: 'add', 
         component: AddComponent
+      },
+            {
+      path: 'categories',
+        component: CategoryComponent,
+      },
+      {
+        path: 'edit/:id', 
+        component: EditComponent, 
       },
       {
         path: 'show/:id', 

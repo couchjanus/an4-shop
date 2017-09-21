@@ -49,6 +49,8 @@ import { ShowComponent } from './show/show.component';
 
 import { ApiService } from '../services/api.service';
 import { DataService } from '../services/data.service';
+import { CategoryComponent } from './category/category.component';
+import { CategoryService } from '../services/category.service';
 
 
 @NgModule({
@@ -92,11 +94,12 @@ import { DataService } from '../services/data.service';
     ReactiveFormsModule,
     AdminRoutingModule
   ],
-  declarations: [DashboardComponent, CatalogComponent, AddComponent, EditComponent, ShowComponent],
+  declarations: [DashboardComponent, CatalogComponent, AddComponent, EditComponent, ShowComponent, CategoryComponent],
   
   providers: [
     ApiService,
     DataService,
+    CategoryService,
 
   ]
 })

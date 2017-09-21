@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { DataService } from '../../services/data.service';
+
 import { Product } from '../../models/product.model';
+
 
 @Component({
   selector: 'app-catalog',
@@ -25,8 +28,15 @@ export class CatalogComponent implements OnInit {
       );
   }
 
-  // get products() {
-  //   return this.dataService.getAllProducts();
-  // } 
+  deleteProduct(id){
+    this.dataService
+      .deleteProductById(id)
+      .subscribe(
+        () => this.refresh()
+      );
+  }
 
+  refresh(): void {
+      window.location.reload();
+  }
 }

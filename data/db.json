@@ -1,20 +1,28 @@
 {
   "categories": [
     {
-      "categori_id": 1,
+      "id": 1,
       "name": "Abyssinian"
     },
     {
-      "categori_id": 2,
+      "id": 2,
       "name": "Bobtail"
     },
     {
-      "categori_id": 3,
+      "id": 3,
       "name": "Balinese"
     },
     {
-      "categori_id": 4,
+      "id": 4,
       "name": "Bengal"
+    },
+    {
+      "name": "Mycat",
+      "id": 5
+    },
+    {
+      "name": "Coolcat",
+      "id": 6
     }
   ],
   "products": [
@@ -145,6 +153,32 @@
       ],
       "img": "http://lorempixel.com/200/100/cats/10",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu."
+    },
+    {
+      "description": "test product 2",
+      "name": "Text product",
+      "price": "123",
+      "available": true,
+      "best_seller": true,
+      "img": "http://lorempixel.com/200/100/cats/11",
+      "categories": [
+        1,
+        2
+      ],
+      "id": 11
+    },
+    {
+      "description": "test3",
+      "name": "Test 3",
+      "price": "222",
+      "available": true,
+      "best_seller": true,
+      "img": "http://lorempixel.com/200/100/cats/12",
+      "categories": [
+        1,
+        2
+      ],
+      "id": 13
     }
   ]
 }

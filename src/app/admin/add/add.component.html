@@ -1,6 +1,6 @@
 <div class="products">
 <h5>Add new product:</h5>
-<form [formGroup]="productForm" novalidate>
+<form [formGroup]="productForm" novalidate (ngSubmit)="onAddProduct(productForm.value)">
         <md-form-field class="full-width">
             <input mdInput class="form-control" placeholder="Product name" formControlName="name">
             <md-error>This field is required</md-error>
