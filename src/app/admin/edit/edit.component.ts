@@ -27,9 +27,14 @@ export class EditComponent implements OnInit {
 
     
   ngOnInit(): void {
-    this.route.paramMap
-      .switchMap((params: ParamMap) => this.dataService.getProductById(+params.get('id')))
+    this.dataService
+      .getProductById(1)
       .subscribe(product => this.product = product);
+    
+    // this.route.paramMap
+    //   .switchMap((params: ParamMap) => this.dataService.getProductById(+params.get('id')))
+    //   .subscribe(product => this.product = product);
+    
       this.createForm();
   }
 
@@ -40,7 +45,7 @@ export class EditComponent implements OnInit {
 
   createForm() {
     this.productForm = this.fb.group({
-      name: [this.product.name, Validators.required ],
+      productName: [this.product.name, Validators.required ],
       price: [this.product.price, Validators.required ],
       description: this.product.description,
       available: this.product.available,

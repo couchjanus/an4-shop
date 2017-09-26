@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '@angular/material';
+// import { MaterialModule } from '@angular/material';
 
 import { 
   MdAutocompleteModule,
@@ -56,7 +56,7 @@ import { CategoryService } from '../services/category.service';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
+    // MaterialModule,
     MdFormFieldModule,
     MdAutocompleteModule,
     MdButtonModule,

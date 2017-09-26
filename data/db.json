@@ -25,6 +25,23 @@
       "id": 6
     }
   ],
+  "users": [
+    {
+      "id": 1,
+      "username": "janus",
+      "password": "ghbdtn",
+      "is_admin": false,
+      "firstName": "Janus",
+      "lastName": "Nic"
+    },
+    {
+      "firstName": "Jhon",
+      "lastName": "Doo",
+      "username": "jhondoo",
+      "password": "ghbdtn",
+      "id": 2
+    }
+  ],
   "products": [
     {
       "id": 1,

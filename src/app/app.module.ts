@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { FlexLayoutModule } from "@angular/flex-layout";
 
 import 'hammerjs';
 
@@ -13,7 +12,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppCommonModule } from "./common/common.module";
 import { ShopModule } from "./shop/shop.module";
-import { AdminModule } from "./admin/admin.module"
+import { AdminModule } from "./admin/admin.module";
+import { UserModule } from "./user/user.module";
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -35,7 +35,6 @@ import { AppRoutingModule } from "./app.routes";
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     BrowserAnimationsModule,
     AppCommonModule,
     AppRoutingModule
