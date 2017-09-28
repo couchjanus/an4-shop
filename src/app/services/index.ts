@@ -6,3 +6,7 @@ export * from './guard.service';
 export * from './category.service';
 export * from './data.service';
 export * from './products.service';
+// export * from './products-data.service';
+// export * from './shopping-cart.service';
+export * from './caching.service';
+export * from './storage.service';

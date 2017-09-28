@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// import { MaterialModule } from '@angular/material';
-
-import { ProductListComponent } from './product-list/product-list.component';
+// import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderComponent } from './order/order.component';
-import { ProductComponent } from './product/product.component';
-import { ShopRoutingModule } from './shop-routing.module';
+
 import { ProductsService } from '../services/products.service';
+import { ProductComponent } from './product/product.component';
+
+import { ShopRoutingModule } from './shop-routing.module';
+
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 
+import { ProductsDataService } from '../services/products-data.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
+import { CachingService, StorageService, LocalStorageServie } from '../services';
 import { 
   MdAutocompleteModule,
   MdButtonModule,
@@ -49,6 +53,7 @@ import {
   MdTooltipModule,
   StyleModule, } from '@angular/material';
 
+// import { ProductsDataService, ShoppingCartService, CachingService, StorageService } from '../services';
 
 
 @NgModule({
@@ -87,16 +92,28 @@ import {
     MdTooltipModule,
     MdNativeDateModule,
     StyleModule,
-
-
     ShopRoutingModule
   ],
   
-  declarations: [ProductListComponent, ProductDetailComponent, CategoryComponent, CartComponent, CheckoutComponent, OrderComponent, ProductComponent, ShowcaseComponent, ThumbnailComponent],
+  declarations: [
+  ProductDetailComponent, 
+  CategoryComponent, 
+  CartComponent, 
+  CheckoutComponent, 
+  OrderComponent, 
+  ProductComponent, 
+  ShowcaseComponent, ThumbnailComponent],
   
   providers: [
     ProductsService,
-
+    ProductsDataService,
+    LocalStorageServie,
+    { provide: StorageService, useClass: LocalStorageServie },
+    {
+      deps: [StorageService, ProductsDataService],
+      provide: ShoppingCartService,
+      useClass: ShoppingCartService
+    }
   ]
 })
 export class ShopModule { }

@@ -20,6 +20,7 @@ export class UserService {
 
     create(user: User) {
         return this.http.post(API_URL + '/users', user, this.jwt()).map((response: Response) => response.json());
+        
     }
 
     update(user: User) {
