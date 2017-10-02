@@ -19,8 +19,7 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-// import { ProductsDataService, ShoppingCartService, CachingService, StorageService, LocalStorageServie } from './services';
+import { CartComponent } from './shop/cart/cart.component';
 
 import { AppRoutingModule } from "./app.routes";
 
@@ -31,6 +30,7 @@ import { AppRoutingModule } from "./app.routes";
     AboutComponent,
     HomeComponent,
     NotFoundComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -44,17 +44,6 @@ import { AppRoutingModule } from "./app.routes";
   ],
 
   providers: [
-    // ProductsDataService,
-    // LocalStorageServie,
-    // { provide: StorageService, useClass: LocalStorageServie },
-    // {
-    //   deps: [StorageService, ProductsDataService],
-    //   provide: ShoppingCartService,
-    //   useClass: ShoppingCartService
-    // }
-    // ShoppingCartService,
-    // CachingService,
-    // StorageService,
 
   ],
   bootstrap: [AppComponent]

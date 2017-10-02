@@ -4,6 +4,7 @@ import { Product, ShoppingCart } from "../models";
 import { LocalStorageServie, StorageService } from "../services";
 import { ProductsDataService } from '../services/products-data.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
+import { DeliveryOptionsDataService } from "../services/delivery-options.service";
 
 import { Observable } from "rxjs/Observable";
 import { Observer } from "rxjs/Observer";
@@ -14,12 +15,12 @@ import { Observer } from "rxjs/Observer";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   providers: [
-   
     ProductsDataService,
     LocalStorageServie,
+    DeliveryOptionsDataService,
     { provide: StorageService, useClass: LocalStorageServie },
     {
-      deps: [StorageService, ProductsDataService],
+      deps: [StorageService, ProductsDataService, DeliveryOptionsDataService],
       provide: ShoppingCartService,
       useClass: ShoppingCartService
     }

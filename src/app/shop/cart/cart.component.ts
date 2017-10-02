@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { Product, ShoppingCart } from "../../models";
 
-// import { ProductsDataService, ShoppingCartService } from "../../services";
 import { ProductsDataService } from '../../services/products-data.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 

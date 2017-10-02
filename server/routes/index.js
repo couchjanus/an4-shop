@@ -149,4 +149,23 @@ router.get('/products', (req, res, next) => {
 });
 
 
+//get all delivery
+router.get('/delivery', (req, res, next) => {
+  pool.connect((err, client, release) => {
+      if (err) {
+        return console.error('Error acquiring client', err.stack);
+      }
+      client.query('SELECT * FROM delivery', (err, result) => {
+        release();
+        if (err) {
+          return console.error('Error executing query', err.stack);
+        }
+        console.log(result.rows);
+        res.send(result.rows);
+      });
+  });
+
+});
+
+
 module.exports = router;
