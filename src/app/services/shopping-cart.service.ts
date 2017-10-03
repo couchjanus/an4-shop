@@ -26,15 +26,17 @@ export class ShoppingCartService {
                      private productService: ProductsDataService,
                      private deliveryOptionsService: DeliveryOptionsDataService) {
     this.storage = this.storageService.get();
+    
     this.productService.all().subscribe((products) => this.products = products);
+    
     this.deliveryOptionsService.all().subscribe((options) => this.deliveryOptions = options);
 
     this.subscriptionObservable = new Observable<ShoppingCart>((observer: Observer<ShoppingCart>) => {
-      this.subscribers.push(observer);
-      observer.next(this.retrieve());
-      return () => {
-        this.subscribers = this.subscribers.filter((obs) => obs !== observer);
-      };
+        this.subscribers.push(observer);
+        observer.next(this.retrieve());
+        return () => {
+          this.subscribers = this.subscribers.filter((obs) => obs !== observer);
+        };
     });
   }
 
