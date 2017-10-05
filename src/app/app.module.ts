@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from "@angular/router";
 
 import 'hammerjs';
 
@@ -22,20 +22,28 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CartComponent } from './shop/cart/cart.component';
 
 import { AppRoutingModule } from "./app.routes";
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
-
+import {FileService} from './services/file.service';
+import { GalleryComponent } from './gallery/gallery.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+// import { RoutePartsService } from './services/route-parts.service';
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     HomeComponent,
     NotFoundComponent,
-    CartComponent
+    CartComponent,
+    FileUploadComponent,
+    BreadcrumbComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppCommonModule,
@@ -44,6 +52,8 @@ import { AppRoutingModule } from "./app.routes";
   ],
 
   providers: [
+    // RoutePartsService,
+    FileService
 
   ],
   bootstrap: [AppComponent]

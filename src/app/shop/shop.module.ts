@@ -19,7 +19,11 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { ProductsDataService } from '../services/products-data.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { DeliveryOptionsDataService } from "../services/delivery-options.service";
+
 import { CachingService, StorageService, LocalStorageServie } from '../services';
+import { RouterModule } from '@angular/router';
+import { RoutePartsService } from '../services/route-parts.service';
+
 import { 
   MdAutocompleteModule,
   MdButtonModule,
@@ -90,6 +94,7 @@ import {
     MdTooltipModule,
     MdNativeDateModule,
     StyleModule,
+    RouterModule,
     ShopRoutingModule
   ],
   
@@ -108,6 +113,7 @@ import {
     ProductsDataService,
     DeliveryOptionsDataService,
     LocalStorageServie,
+    RoutePartsService,
     { provide: StorageService, useClass: LocalStorageServie },
     {
       deps: [StorageService, ProductsDataService, DeliveryOptionsDataService],

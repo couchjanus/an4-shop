@@ -14,11 +14,19 @@ const routes: Routes = [
       {
         path: 'checkout',
         component: CheckoutComponent,
+        data: {
+          breadcrumb: "Checkout Page"
+        } 
+        
       },
       {
         
         path: "confirmed",
         component: OrderComponent,
+        data: {
+          breadcrumb: "Order Page"
+        } 
+        
       },
       {
         path: ':id', 

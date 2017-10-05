@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { Product, ShoppingCart } from "../models";
-
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { LocalStorageServie, StorageService } from "../services";
 import { ProductsDataService } from '../services/products-data.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
@@ -27,11 +27,17 @@ import { Observer } from "rxjs/Observer";
   ]  
 })
 export class HomeComponent implements OnInit {
-
+  private routeSub;
   public products: Observable<Product[]>;
 
   public constructor(private productsService: ProductsDataService,
-                     private shoppingCartService: ShoppingCartService) {
+                     private shoppingCartService: ShoppingCartService,
+                     private route: ActivatedRoute,
+                     private router: Router,
+                     ) {
+    this.routeSub = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((routeChange) => {
+      
+    })
   }
 
   public addProductToCart(product: Product): void {

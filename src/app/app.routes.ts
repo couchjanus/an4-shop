@@ -8,7 +8,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    { 
+      path: 'home', 
+      component: HomeComponent,
+      data: {
+          breadcrumb: "Home Page"
+        } 
+     },
     {
       path: 'shop',
       loadChildren: './shop/shop.module#ShopModule'

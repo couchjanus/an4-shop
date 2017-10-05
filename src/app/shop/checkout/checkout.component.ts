@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { CartItem } from "../../models/cart-item.model";
 import { DeliveryOption } from "../../models/delivery-option.model";
 import { Product } from "../../models/product.model";
@@ -21,6 +22,7 @@ interface ICartItemWithProduct extends CartItem {
 })
 
 export class CheckoutComponent implements OnInit, OnDestroy {
+  private routeSub;
   public deliveryOptions: Observable<DeliveryOption[]>;
   public cart: Observable<ShoppingCart>;
   public cartItems: ICartItemWithProduct[];
@@ -31,7 +33,14 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   public constructor(private productsService: ProductsDataService,
                      private deliveryOptionService: DeliveryOptionsDataService,
-                     private shoppingCartService: ShoppingCartService) {
+                     private shoppingCartService: ShoppingCartService,
+                     private route: ActivatedRoute,
+                     private router: Router,
+                     ) {
+    this.routeSub = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((routeChange) => {
+      // const slug = this.route.snapshot.params['slug'];
+      
+    })
   }
 
   public emptyCart(): void {
@@ -62,6 +71,11 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    if(this.routeSub){
+      this.routeSub.unsubscribe();
+    }
+    
+
     if (this.cartSubscription) {
       this.cartSubscription.unsubscribe();
     }

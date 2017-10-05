@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
-// import { MaterialModule } from '@angular/material';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MenuComponent } from './menu/menu.component';
@@ -39,7 +39,9 @@ import {
   MdTabsModule,
   MdToolbarModule,
   MdTooltipModule,
-  StyleModule, } from '@angular/material';
+  StyleModule,
+   } from '@angular/material';
+
 
 
 
@@ -78,9 +80,8 @@ import {
   MdToolbarModule,
   MdTooltipModule,
   StyleModule,
-
-    RouterModule,
-    BrowserAnimationsModule
+  RouterModule,
+  BrowserAnimationsModule
   ],
   declarations: [ToolbarComponent, MenuComponent, LayoutComponent],
   exports: [ToolbarComponent]
