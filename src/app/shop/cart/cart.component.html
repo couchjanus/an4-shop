@@ -1,14 +1,18 @@
+<div class="container">
+<br/><br/><br/><br/>
 <div class="row">
-  <div class="small-12 columns">
+  <div class="col-md-12">
     <h3>
-      <i class="material-icons">shopping_basket</i>
+      <i class="fa fa-shopping-cart"></i>
       Your Shopping Basket
     </h3>
   </div>
+
 </div>
 <br/>
+
 <div class="row">
-  <div class="small-12 columns">
+  <div class="col-md-12">
     <h5>
       Sub Total ({{itemCount}} items):
       <span class="text--red text--bold js-cart-total">{{(cart | async).grossTotal | currency:'USD':true}}</span>
@@ -17,24 +21,25 @@
 </div>
 <br/>
 <div class="row">
-  <div class="small-12 columns">
-    <a class="success button large expanded"
+  <div class="col-md-12">
+    <a class="btn btn-primary btn-sm btn-block"
        [attr.disabled]="itemCount === 0 ? true : null"
        routerLink="/shop/checkout">Proceed To Checkout</a>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns text-center">
+  <div class="col-md-12 text-center">
     or
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
+  <div class="col-md-12">
     <button type="button"
-            class="secondary button small expanded js-btn-empty-cart"
+            class="btn btn-primary btn-sm btn-block js-btn-empty-cart"
             (click)="emptyCart()"
             [attr.disabled]="itemCount === 0 ? true : null">
       Empty shopping basket
     </button>
   </div>
+</div>
 </div>

@@ -1,0 +1,134 @@
+<app-page-header [heading]="'Orders'" [icon]="'fa-table'"></app-page-header>
+<div class="row" *ngIf="showFormFlag">
+    <div class="col col-xl-12 col-lg-12">
+        <form #orderForm="ngForm">
+            <div class="card mb-3">
+                <div class="card-header">
+                    {{order.id ? 'Edit' : 'Add'}} Orders
+                </div>
+                <div class="col-md-12">
+
+                    <fieldset class="form-group align-middle">
+                        <label>Name: </label> {{order.customerName}}
+                    </fieldset>
+
+                    <fieldset class="form-group align-middle">
+                        <label>Shipping Address: </label> {{order.shippingAddress}}
+                    </fieldset>
+
+                    <table class="table table-bordered">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Count</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let items of order.items;">
+                            <td>
+                                {{items.productName}}
+                            </td>
+                            <td>
+                                {{items.price}}
+                            </td>
+                            <td>
+                                {{items.count}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <fieldset class="form-group align-middle">
+                        <label>Total: </label> {{order.total}}
+                    </fieldset>
+
+                    <fieldset class="form-group align-middle">
+                        <label>Status</label>
+                        <select class="form-control" [(ngModel)]="order.status" name="status" required>
+                            <option *ngFor="let item of statusList;" [ngValue]="item.value">{{ item.name }}</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset class="form-group align-middle">
+                        <label>Delivery Type</label>
+                        <select class="form-control" [(ngModel)]="order.deliveryType" name="deliveryType" required>
+                            <option *ngFor="let item of deliveryTypeList;" [ngValue]="item.value">{{ item.name }}</option>
+                        </select>
+                    </fieldset>
+
+                    <div class="form-group align-middle">
+                        <div class="col-md-8">
+                            <button class="btn btn-success" (click)="orderSave()" [disabled]="!orderForm.form.valid">
+                                Update Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col col-xl-12 col-lg-12">
+        <div class="card mb-3">
+            <div class="card-header">Orders</div>
+            <div class="card-block table-responsive">
+                <br><br>
+                <input class="form-control" [(ngModel)]="tableParams.search" name="search"
+                       placeholder="Enter a Name" (keyup)="searchFilter()" *ngIf="orderList.length">
+                <br>
+                <table class="table table-bordered" *ngIf="orderList.length">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th (click)="sortField(1)" style="cursor: pointer;">#</th>
+                        <th (click)="sortField(2)" style="cursor: pointer;">Customer</th>
+                        <th (click)="sortField(3)" style="cursor: pointer;">Data</th>
+                        <th (click)="sortField(4)" style="cursor: pointer;">Total</th>
+                        <th (click)="sortField(5)" style="cursor: pointer;">Count</th>
+                        <th (click)="sortField(6)" style="cursor: pointer;">Delivery</th>
+                        <th (click)="sortField(7)" style="cursor: pointer;">Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let order of orderList; let i = index;">
+                        <td>{{order.id}}</td>
+                        <td>
+                            {{order.customerName}}
+                        </td>
+                        <td>
+                            {{order.date | date: 'MM/dd/yyyy HH:mm:ss'}}
+                        </td>
+                        <td>
+                            {{order.total}}
+                        </td>
+                        <td>
+                            {{order.itemCount}}
+                        </td>
+                        <td>
+                            {{deliveryTypeList[order.deliveryType].name}}
+                        </td>
+                        <td class="central">{{statusList[order.status].name}}</td>
+                        <td>
+                            <button class="btn btn-warning" (click)="editOrder(order.id)">Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deleteOrder(order.id)">Delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="advancedPagination" [maxSize]="5"
+                                [rotate]="true" *ngIf="orderList.length" (pageChange)="changePage($event)"
+                                [ellipses]="false" [boundaryLinks]="true" [pageSize] = "tableParams.limit">
+                </ngb-pagination>
+                <div *ngIf="!orderList.length">
+                    Orders not found
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

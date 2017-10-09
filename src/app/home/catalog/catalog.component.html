@@ -1,0 +1,42 @@
+<div class="container">
+<br><br><br><br>
+  <div class="row">
+  <div class="col-md-8">
+    <h3>Pick your favourite cats...</h3>
+    <ul class="product-list">
+      <li *ngFor="let product of products | async"
+          class="product-container">
+          <div class="row">
+            <div class="col-md-12">
+            <div class="col-md-3">
+              <img src={{product.img}}
+                   class="product_image"/>
+            </div>
+            <div class="col-md-9">
+              <h4>
+                <span class="text--bold js-product-name">{{product.name}}</span>
+                <small class="product_price js-product-price">{{product.price | currency:'USD':true}}</small>
+              </h4>
+              <p class="js-product-desc">{{product.description}}</p>
+              
+              <p>
+                <button type="btn"
+                        class="btn btn-success js-btn-add"
+                        (click)="addProductToCart(product, 1)">Add To Cart</button>
+                <button type="button"
+                        class="btn js-btn-remove"
+                        *ngIf="productInCart(product) | async"
+                        (click)="removeProductFromCart(product, 1)">Remove item from cart</button>
+              </p>
+            </div>
+          </div>
+          </div>
+      </li>
+    </ul>
+  
+  </div>
+  <div class="col-md-4">
+    <app-cart></app-cart>
+  </div>
+</div>
+</div>

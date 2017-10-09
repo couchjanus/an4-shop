@@ -1,0 +1,24 @@
+<div class="login-page">
+    <div class="row">
+        <div class="col-md-4 push-md-4">
+            <img src="../../assets/images/logo.svg" width="150px" class="user-avatar"/>
+            <h1>Janus Shop Admin Panel</h1>
+            <form>
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="email" [(ngModel)]="user.email" name="email" (keyup.enter)="onLoggedin()"
+                               class="form-control input-underline input-lg" id="email" placeholder="Email">
+                        <span class="help-inline">{{emailMessage}}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" [(ngModel)]="user.password" name="password" (keyup.enter)="onLoggedin()"
+                               class="form-control input-underline input-lg" id="password" placeholder="Password">
+                        <span class="help-inline">{{passwordMessage}}</span>
+                    </div>
+                </div>
+                <a class="btn rounded-btn" (click)="onLoggedin()" style="cursor: pointer;"> Log in </a>
+            </form>
+        </div>
+    </div>
+</div>
