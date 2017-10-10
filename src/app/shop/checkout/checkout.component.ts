@@ -37,10 +37,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
                      private route: ActivatedRoute,
                      private router: Router,
                      ) {
-    this.routeSub = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((routeChange) => {
+    // this.routeSub = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((routeChange) => {
       // const slug = this.route.snapshot.params['slug'];
       
-    })
+    // })
   }
 
   public emptyCart(): void {

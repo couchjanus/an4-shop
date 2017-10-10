@@ -1,64 +1,66 @@
+<div class="container">
+<br><br><br><br>
 <div class="row">
-  <div class="medium-4 columns">
+  <div class="col-md-4">
     <h2>
-      <i class="material-icons">shopping_basket</i>
+      <i class="fa fa-shopping-cart"></i>
       <span>Checkout</span>
     </h2>
   </div>
-  <div class="medium-4 columns text-right">
+  <div class="col-md-4 text-right">
     <h4>
       Order Total
       <span class="text--red text--bold js-gross-total">{{(cart | async).total | currency:'USD':true}}</span>
     </h4>
   </div>
-  <div class="medium-4 columns text-right">
+  <div class="col-md-4 text-right">
     <h5 class="text--red"
        *ngIf="(cart | async).deliveryOptionId === undefined">Please select a delivery option...</h5>
     <a class="success button large"
        *ngIf="(cart | async).deliveryOptionId !== undefined"
-       routerLink="/shop/confirmed">Purchase Order</a>
+       routerLink="/confirmed">Purchase Order</a>
   </div>
   <hr/>
 </div>
 <div class="row">
-  <div class="medium-8 columns">
+  <div class="col-md-8">
     <h4>Delivery 1 of 1</h4>
     <small>Dispatching to the UK....</small>
     <div class="row checkout_row"
         *ngFor="let item of cartItems">
-      <div class="medium-2 columns text-center">
+      <div class="col-md-2 text-center">
       </div>
-      <div class="medium-5 columns">
+      <div class="col-md-5">
           <span class="text--bold js-product-name">{{item.product.name}}</span>
           <p class="js-product-desc">{{item.product.description}}</p>
       </div>
-      <div class="medium-2 columns text-right">
+      <div class="col-md-2 text-right">
           <p class="text--red js-product-costs">{{item.quantity}} x {{item.product.price | currency:'USD':true}}</p>
       </div>
-      <div class="medium-3 columns text-right">
+      <div class="col-md-3 text-right">
           <p class="text--bold text--red js-product-total">{{item.totalCost | currency:'USD':true}}</p>
       </div>
     </div>
   </div>
-  <div class="medium-4 columns">
+  <div class="col-md-4">
     <h4>Delivery Options</h4>
 
     <div class="row delivery-option"
         *ngFor="let option of deliveryOptions | async">
-        <div class="small-1 columns">
+        <div class="col-md-1">
           <input type="radio"
                  name="delivery_option"
                  id="{{option.name}}"
                  [checked]="option.id === (cart | async).deliveryOptionId"
                  (click)="setDeliveryOption(option)">
         </div>
-        <div class="small-9 columns">
+        <div class="col-md-9">
           <label class="text--bold js-option-name" for="{{option.name}}" (click)="setDeliveryOption(option)">{{option.name}}</label>
         </div>
-        <div class="small-2 columns">
+        <div class="col-md-2">
           <p class="text--bold text--red js-option-price">{{option.price | currency:'USD':true}}</p>
         </div>
-        <div class="small-12 columns">
+        <div class="col-md-12">
           <p>{{option.description}}</p>
         </div>
     </div>
@@ -66,10 +68,11 @@
 
 
   <div class="row">
-    <div class="small-10 columns small-centered">
-      <a class="warning button expanded"
-        routerLink="/">Continue Shopping</a>
+    <div class="col-md-10 small-centered">
+      <a class="btn btn-warning expanded"
+        routerLink="/home">Continue Shopping</a>
     </div>
   </div>
+</div>
 </div>
 <router-outlet></router-outlet>
